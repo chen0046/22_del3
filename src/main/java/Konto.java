@@ -1,5 +1,6 @@
 public class Konto {
-    int balance = 1000; //Vi definerer kontoens startværdi med int da det omhandler hele tal
+
+    int balance = 20; //Vi definerer kontoens startværdi med int da det omhandler hele tal
     int maxPoint = 3000; //vi definerer kontoens maksværdi med int da det omhandler hele tal
 
     /* laver en getter som gør så når vi kalder på den i andre klasser så viser den os
