@@ -9,7 +9,9 @@ public class SpillerController {
     }
 
     public void makeSpillere() {
+    Spiller[] spillere = {
 
+        };
     }
 
 }
