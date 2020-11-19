@@ -10,6 +10,7 @@ public class Field {
     boolean start;
     boolean jail;
 
+
     public boolean isJail() {
         return jail;
     }
