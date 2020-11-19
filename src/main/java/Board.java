@@ -7,6 +7,31 @@ public class Board {
             fields[i] = new Field();
 
         }
+        public void setFields() {
+            int q = 0;
+            fields[q].setTitle("Start"); fields[q].setSubText("Modtag 2 moneter."); fields[q].setDescription("Start"); fields[q].setRent("Start");
+            fields[q++].setTitle() fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+            fields[q++].setTitle(); fields[q].setSubText(); fields[q].setDescription(); fields[q].setRent();
+        }
     }
 
     public Field[] getFields() {

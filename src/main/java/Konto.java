@@ -1,8 +1,11 @@
 public class Konto {
+    int balance;
 
-    int balance = 20; //Vi definerer kontoens startværdi med int da det omhandler hele tal
-    int maxPoint = 3000; //vi definerer kontoens maksværdi med int da det omhandler hele tal
+    public static void startBalance() {
+        if (SpillerController.getSpillerAntal() = 2) {
 
+        }
+    }
     /* laver en getter som gør så når vi kalder på den i andre klasser så viser den os
         hvor meget det ligger på kontoen*/
     public int getBalance() {

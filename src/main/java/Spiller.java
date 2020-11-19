@@ -17,10 +17,6 @@ public class Spiller {
     Her sørger vi for at når "askname" bliver kaldt på i andre klasser, så bliver det næste input spilleren laver
     det navnet bliver sat til */
 
-    public void askName(Spiller currentPlayer) {
-
-    }
-
     //Her gør vi så når man skriver getNavn så får man det definerede Navn
     public String getNavn() {
         return navn;

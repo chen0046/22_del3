@@ -6,7 +6,7 @@ public class BoardController {
     GUI_Field[] gui_fields;
 
     public BoardController(){
-      board= new Board();
+      board = new Board();
       gui_fields = new GUI_Field[24];
 
         for (int i = 0; i <24 ; i++) {
