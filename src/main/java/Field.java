@@ -4,7 +4,7 @@ public class Field {
     String description;
     String rent;
 
-    public Field(){
+    public Field() {
 
     }
 
@@ -39,4 +39,5 @@ public class Field {
     public void setRent(String rent) {
         this.rent = rent;
     }
+}
 

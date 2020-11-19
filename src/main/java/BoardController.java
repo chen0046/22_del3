@@ -7,14 +7,14 @@ public class BoardController {
 
     public BoardController(){
       board = new Board();
-      gui_fields = new GUI_Field[23];
-
-        for (int i = 0; i <23 ; i++) {
+      gui_fields = new GUI_Field[24];
+      board.setFields(board.fields);
+      int i = 0;
+        while(i < 24) {
             gui_fields[i] = new GUI_Street();
-
             String title = board.getFields()[i].getTitle();
             gui_fields[i].setTitle(title);
-
+            i++;
         }
 
     }
