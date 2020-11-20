@@ -26,7 +26,7 @@ public class Board {
         fields[11].setTitle("Svømmepool"); fields[11].setSubText("M2"); fields[11].setDescription("Du skal prøve din badedregt og er stoppet ved den lokale Svømmingpool.Svømmenpoolen koster M2 at købe og leje"); fields[11].setRent(".");fields[11].setMain(Color.black); fields[11].setSecondary(new Color(255, 187, 51));
         fields[12].setTitle("Gratis parkering"); fields[12].setParkering(true);
         fields[13].setTitle("Spillehallen"); fields[13].setSubText("M3"); fields[13].setDescription("Du har lavet alle dine lektier og har fået lov til at gå ned i Spillehallen.Spille hallen koster M3 at købe og leje."); fields[13].setRent(".");fields[13].setMain(Color.black); fields[13].setSecondary(new Color(204, 0, 0));
-        fields[14].setTitle("Biografen"); fields[14].setSubText("M3"); fields[14].setDescription("."); fields[14].setRent(".");fields[14].setMain(Color.black); fields[14].setSecondary(new Color(204, 0, 0));
+        fields[14].setTitle("Biografen"); fields[14].setSubText("M3"); fields[14].setDescription("Der er kommet en ny mega god film i biografen, og har valgt at prøve at få fat i en billet. Biografen koster M3 at købe og leje."); fields[14].setRent(".");fields[14].setMain(Color.black); fields[14].setSecondary(new Color(204, 0, 0));
         fields[15].setTitle("?"); fields[15].setChance(true);
         fields[16].setTitle("Legetøjsbutik"); fields[16].setSubText("M3"); fields[16].setDescription("."); fields[16].setRent(".");fields[16].setMain(Color.black); fields[16].setSecondary(new Color(255, 255, 0));
         fields[17].setTitle("Dyrehandel"); fields[17].setSubText("M3"); fields[17].setDescription("."); fields[17].setRent(".");fields[17].setMain(Color.black); fields[17].setSecondary(new Color(255, 255, 0));
