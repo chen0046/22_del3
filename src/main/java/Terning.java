@@ -15,5 +15,10 @@ public class Terning {
 
     public int henttotal() { //Giv et resultat for de 2 terninger lagt sammen
         return terning1;
-    } //Vis summen af hvad terning 1 og 2 fik
+    }
+
+
+
+
 }
+
