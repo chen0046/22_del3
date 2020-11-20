@@ -42,7 +42,7 @@ public class SpillerController {
     }
 
     public void move(int playerIndex, int roll) {
-
+        spillere[playerIndex].setPos(spillere[playerIndex].getPos() + roll);
     }
 }
 
