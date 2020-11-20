@@ -9,16 +9,32 @@ public class Field {
     Color secondary;
     boolean start;
     boolean jail;
+    boolean chance;
+    boolean parkering;
+    boolean goToJail;
 
 
     public boolean isJail() {
         return jail;
     }
-
     public void setJail(boolean jail) {
         this.jail = jail;
     }
 
+    public boolean isChance(){
+        return chance;
+    }
+    public void setChance(boolean chance){this.chance = chance;}
+
+    public boolean isParkering() {
+        return parkering;
+    }
+    public void setParkering(boolean parkering){this.parkering = parkering;}
+
+    public boolean isGoToJail(){
+        return goToJail;
+    }
+    public void setGoToJail(boolean goToJail){this.goToJail = goToJail;}
 
 
     public Color getMain() {
