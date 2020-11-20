@@ -7,7 +7,8 @@ public class Consol {
 
     public void Startgame(){
         while(true) {
-            gui.getUserButtonPressed("hej", "slå terningen");
+            gui.getUserButtonPressed("hej","Slå terningen");
+            terning.roll();
             gui.setDie(terning.henttotal());
         }
     }
