@@ -26,7 +26,7 @@ public class BoardController {
                 gui_fields[i] = new GUI_Refuge("default", "Gratis parkering", "Parkering", "Ta' en pause, du har helle", Color.WHITE, Color.BLACK);
             }
             else if (board.getFields()[i].isGoToJail()){
-                gui_fields[i] =new GUI_Jail("default", "Gå i fængsel", "Gå i fængsel", "De fængsles\nSlå to ens for at komme ud", new Color(125, 125, 125), Color.BLACK);
+                gui_fields[i] =new GUI_Jail("default", "Gå i fængsel", "Gå i fængsel", "Du skal i fængsel!\nFor at komme ud af fængslet skal du, i din næste tur, enten betale M1 eller bruge et 'Du løslades unden omkostninger'- kort.", new Color(125, 125, 125), Color.BLACK);
             }
             else {
                 gui_fields[i] = new GUI_Street();
@@ -40,11 +40,6 @@ public class BoardController {
     }
 
 }
-
-
-
-
-
 
     public void setGui_fields(GUI_Field[] gui_fields) {
         this.gui_fields = gui_fields;
@@ -61,6 +56,7 @@ public class BoardController {
     public void setBoard(Board board) {
         this.board = board;
     }
+
 
 
 
