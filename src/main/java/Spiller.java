@@ -3,7 +3,7 @@
 public class Spiller {
 
     String navn; //Navn skal defineres som String da det involverer tekst
-    Konto spillerKonto;
+    Konto spillerKonto = new Konto();
     int pos;
     int Birthday;
 

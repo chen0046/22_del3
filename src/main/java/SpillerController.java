@@ -24,6 +24,7 @@ public class SpillerController {
         while(var < spillerAntal) {
             spillere[var] = new Spiller();
             spillere[var].setNavn("Kurt");
+            spillere[var].spillerKonto.setBalance(20);
             var++;
         }
     }
@@ -31,13 +32,17 @@ public class SpillerController {
     public void setGui_players() {
         int var2 = 0;
         while(var2 < spillerAntal) {
-            gui_players[var2] = new GUI_Player("Kurt", 20);
+            gui_players[var2] = new GUI_Player(spillere[var2].getNavn(), spillere[var2].spillerKonto.getBalance());
             var2++;
         }
     }
 
     public GUI_Player[] getGui_players() {
         return gui_players;
+    }
+
+    public void move(int playerIndex, int roll) {
+
     }
 }
 
