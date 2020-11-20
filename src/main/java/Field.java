@@ -7,12 +7,12 @@ public class Field {
     String rent;
     Color main;
     Color secondary;
+
     boolean start;
     boolean jail;
     boolean chance;
     boolean parkering;
     boolean goToJail;
-
 
     public boolean isJail() {
         return jail;
@@ -96,6 +96,11 @@ public class Field {
 
     public void setStart(boolean start) {
         this.start = start;
+    }
+
+
+    public void Brætfunktion(){
+
     }
 }
 
