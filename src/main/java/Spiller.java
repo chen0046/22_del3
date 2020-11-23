@@ -2,7 +2,7 @@
 
 public class Spiller {
 
-    String navn; //Navn skal defineres som String da det involverer tekst
+    String navn;
     Konto spillerKonto = new Konto();
     int pos;
     int Birthday;
@@ -13,6 +13,9 @@ public class Spiller {
 
     public void setPos(int pos) {
         this.pos = pos;
+        if(getPos() > 23) {
+            pos = getPos() - 23;
+        }
     }
 
     public int getBirthday() {
@@ -23,12 +26,10 @@ public class Spiller {
         Birthday = birthday;
     }
 
-    //Her gør vi så når man skriver getNavn så får man det definerede Navn
     public String getNavn() {
         return navn;
     }
 
-    //Her gør vi så når man skriver setNavn så definerer vi navnet
     public void setNavn(String navn) {
         this.navn = navn;
     }

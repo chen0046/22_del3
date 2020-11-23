@@ -5,7 +5,7 @@ import gui_main.GUI;
 public class SpillerController {
 
     Spiller[] spillere;
-    int spillerAntal = 2;
+    int spillerAntal;
     GUI_Player[] gui_players;
 
 
@@ -20,14 +20,13 @@ public class SpillerController {
     }
 
     public void setSpillere() {
-        int var = 0;
-        while(var < spillerAntal) {
-            spillere[var] = new Spiller();
-            spillere[var].setNavn("Kurt");
-            spillere[var].spillerKonto.setBalance(20);
-            var++;
-        }
-    }
+            int var = 0;
+            while(var < spillerAntal) {
+                spillere[var] = new Spiller();
+                var++;
+
+            }
+
 
     public void setGui_players() {
         int var2 = 0;
@@ -43,6 +42,10 @@ public class SpillerController {
 
     public void move(int playerIndex, int roll) {
         spillere[playerIndex].setPos(spillere[playerIndex].getPos() + roll);
+    }
+    public void startSpillere() {
+        setSpillere();
+        setGui_players();
     }
 }
 
