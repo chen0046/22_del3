@@ -1,7 +1,9 @@
 public class Konto {
     private int balance;
 
-    public Konto () {}
+    public Konto () {
+        this.balance = 0;
+    }
 
 
     //laver en getter som gør så når vi kalder på den i andre klasser så viser den os

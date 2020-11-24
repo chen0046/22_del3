@@ -1,12 +1,10 @@
-import gui_fields.GUI_Player;
-
 import java.util.Scanner;
 
 public class Spiller {
 
     String navn; //Navn skal defineres som String da det involverer tekst
     Scanner input = new Scanner(System.in); //Vi tilføjer Scanneren så vi kan modtage inputs fra spilleren
-    Konto spillerKonto;
+    Konto spillerKonto = new Konto();
     int pos;
     int spillerID;
 
@@ -32,6 +30,9 @@ public class Spiller {
 
     public void setPos(int pos) {
         this.pos = pos;
+        if(pos > 23) {
+            this.pos = getPos() - 24;
+        }
     }
 
     public int getSpillerID() {

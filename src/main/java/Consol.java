@@ -6,13 +6,11 @@ public class Consol {
     GUI gui = new GUI(boardController.getGui_fields());
     Terning terning = new Terning();
     SpillerController spillerController = new SpillerController();
-    int numberInput;
 
     public void Startgame() {
         int numberInput = gui.getUserInteger("Hvor mange spiller i dag?");
         spillerController.makePlayers(numberInput);
         askName(numberInput);
-
     }
 
 
@@ -25,9 +23,11 @@ public class Consol {
             spillerController.spillere[var].setPos(0);
             if (amount == 2) {
                 spillerController.spillere[var].spillerKonto.setBalance(20);
-            } else if (amount == 3) {
+            }
+            else if (amount == 3) {
                 spillerController.spillere[var].spillerKonto.setBalance(18);
-            } else {
+            }
+            else {
                 spillerController.spillere[var].spillerKonto.setBalance(16);
             }
             spillerController.gui_players[var] = new GUI_Player(spillerController.spillere[var].getNavn(), spillerController.spillere[var].spillerKonto.getBalance());

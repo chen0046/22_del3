@@ -28,7 +28,6 @@ public class SpillerController {
             return gui_players;
         }
     public void makePlayers(int amount) {
-        int t = 0;
         this.spillere = new Spiller[amount];
         this.gui_players = new GUI_Player[amount];
     }
