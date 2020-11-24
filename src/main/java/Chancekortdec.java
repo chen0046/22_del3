@@ -21,7 +21,7 @@ public class Chancekortdec {
     public Chancekortdec() {
 
         String[] bunke = new String[20];
-            bunke[0] =("På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!");
+            bunke[0]=("På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!");
             bunke[2]=("Ryk frem til START. modtag m2");
             bunke[3]=("Ryk op til 5 felter frem.");
             bunke[4]=("Ryk frem til et orange felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.");

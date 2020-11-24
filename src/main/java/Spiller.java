@@ -3,18 +3,9 @@ import java.util.Scanner;
 public class Spiller {
 
     String navn; //Navn skal defineres som String da det involverer tekst
-    Scanner input = new Scanner(System.in); //Vi tilføjer Scanneren så vi kan modtage inputs fra spilleren
     Konto spillerKonto = new Konto();
     int pos;
     int spillerID;
-
-    public Scanner getInput() {
-        return input;
-    }
-
-    public void setInput(Scanner input) {
-        this.input = input;
-    }
 
     public Konto getSpillerKonto() {
         return spillerKonto;

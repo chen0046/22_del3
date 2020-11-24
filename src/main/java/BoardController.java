@@ -78,6 +78,8 @@ public class BoardController {
             int ejer = ownable.getEjer();
             if (ownable.getEjer()==-1){
                 //TODO Hvad skal der ske hvis ingen ejer feltet
+                ownable.getPris();
+                ownable.setEjer(spiller.getSpillerID());
             }
             else if (spiller.getSpillerID()==ejer){
             //TODO Hvad sker der hvis spilleren ejer feltet
