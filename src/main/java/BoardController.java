@@ -57,7 +57,37 @@ public class BoardController {
         this.board = board;
     }
 
+    public void playerLandOnField(Spiller spiller, int fieldID){
+        if (board.getFields()[fieldID].isStart()) {
+
+        }
+        else if (board.getFields()[fieldID].isJail()) {
+
+        }
+        else if (board.getFields()[fieldID].isChance()) {
+
+        }
+        else if (board.getFields()[fieldID].isParkering()){
+
+        }
+        else if (board.getFields()[fieldID].isGoToJail()){
+
+        }
+        else {
+            OwnableField ownable=(OwnableField)board.getFields()[fieldID];
+            int ejer = ownable.getEjer();
+            if (ownable.getEjer()==-1){
+                //TODO Hvad skal der ske hvis ingen ejer feltet
+            }
+            else if (spiller.getSpillerID()==ejer){
+            //TODO Hvad sker der hvis spilleren ejer feltet
+            }
+            else{
+                //TODO HVad sker der hvis spilleren ikke ejer feltet
+            }
 
 
+        }
 
+    }
 }

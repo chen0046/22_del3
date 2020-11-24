@@ -5,6 +5,8 @@ public class Board {
 
     public Board() {
         fields = new Field[24];
+        //TODO istedet for at bruge field konstruktøre skal vi bruge individuelle subklassers konstruktøre
+       fields[1] = new OwnableField(2,2);
         for (int i = 0; i < 24; i++) {
             fields[i] = new Field();
 

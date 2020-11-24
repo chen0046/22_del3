@@ -8,11 +8,39 @@ public class Spiller {
     Scanner input = new Scanner(System.in); //Vi tilføjer Scanneren så vi kan modtage inputs fra spilleren
     Konto spillerKonto;
     int pos;
-    int Birthday;
+    int spillerID;
 
+    public Scanner getInput() {
+        return input;
+    }
 
+    public void setInput(Scanner input) {
+        this.input = input;
+    }
 
+    public Konto getSpillerKonto() {
+        return spillerKonto;
+    }
 
+    public void setSpillerKonto(Konto spillerKonto) {
+        this.spillerKonto = spillerKonto;
+    }
+
+    public int getPos() {
+        return pos;
+    }
+
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
+
+    public int getSpillerID() {
+        return spillerID;
+    }
+
+    public void setSpillerID(int spillerID) {
+        this.spillerID = spillerID;
+    }
     /*
     Her sørger vi for at når "askname" bliver kaldt på i andre klasser, så bliver det næste input spilleren laver
     det navnet bliver sat til */
