@@ -6,34 +6,8 @@ public class Board {
     public Board() {
         fields = new Field[24];
         //TODO istedet for at bruge field konstruktøre skal vi bruge individuelle subklassers konstruktøre
-       fields[1] = new OwnableField(1,1);
-       fields[2] = new OwnableField(1,1);
-
-       fields[4] = new OwnableField(1,1);
-       fields[5] = new OwnableField(1,1);
-
-       fields[7] = new OwnableField(2,2);
-       fields[8] = new OwnableField(2,2);
-
-       fields[10] = new OwnableField(2,2);
-       fields[11] = new OwnableField(2,2);
-
-       fields[13] = new OwnableField(3,3);
-       fields[14] = new OwnableField(3,3);
-
-       fields[16] = new OwnableField(3,3);
-       fields[17] = new OwnableField(3,3);
-
-       fields[19] = new OwnableField(4,4);
-       fields[20] = new OwnableField(4,4);
-
-       fields[22] = new OwnableField(5,5);
-       fields[23] = new OwnableField(5,5);
-
-
         for (int i = 0; i < 24; i++) {
             fields[i] = new Field();
-
         }
     }
     public void setFields(Field[] fields) {
@@ -62,7 +36,32 @@ public class Board {
         fields[21].setTitle("?"); fields[21].setChance(true);
         fields[22].setTitle("Vandland"); fields[22].setSubText("M5"); fields[22].setDescription("Det er blevet sommer og varmt, derfor vil du gerne i vandlandet, som både har dejligt afkølende vand og sjove vandrutsjebane. Vandlandet koster M5 at købe og leje."); fields[22].setRent(".");fields[22].setMain(Color.black); fields[22].setSecondary(new Color(51, 102, 153));
         fields[23].setTitle("Strandpromenade"); fields[23].setSubText("M5"); fields[23].setDescription("Sommerferien er startet og din mor har inviteret dig ned til Strandpromenaden for at få en is.Strandpromenaden koster M5 at købe og leje."); fields[23].setRent(".");fields[23].setMain(Color.black); fields[23].setSecondary(new Color(51, 102, 153));
+        //TODO istedet for at bruge field konstruktøre skal vi bruge individuelle subklassers konstruktøre
+        }
+        public void setOwnableFields(Field[] fields) {
+        fields[1] = new OwnableField(1,1);
+        fields[2] = new OwnableField(1,1);
 
+        fields[4] = new OwnableField(1,1);
+        fields[5] = new OwnableField(1,1);
+
+        fields[7] = new OwnableField(2,2);
+        fields[8] = new OwnableField(2,2);
+
+        fields[10] = new OwnableField(2,2);
+        fields[11] = new OwnableField(2,2);
+
+        fields[13] = new OwnableField(3,3);
+        fields[14] = new OwnableField(3,3);
+
+        fields[16] = new OwnableField(3,3);
+        fields[17] = new OwnableField(3,3);
+
+        fields[19] = new OwnableField(4,4);
+        fields[20] = new OwnableField(4,4);
+
+        fields[22] = new OwnableField(5,5);
+        fields[23] = new OwnableField(5,5);
     }
     public Field[] getFields() {
         return fields;

@@ -23,6 +23,7 @@ public class Spiller {
         this.pos = pos;
         if(pos > 23) {
             this.pos = getPos() - 24;
+            spillerKonto.setBalance(+ 2);
         }
     }
 

@@ -55,7 +55,6 @@ public class Field {
 
 
     public Field() {
-
     }
 
     public String getTitle() {

@@ -6,7 +6,7 @@ public class Chancekortdec {
 
         //her opretter jeg tallene til at trække dem ud senere
         int i= (int)(Math.random()*20);
-        int j=(int)(Math.random()*20);
+        int j= (int)(Math.random()*20);
 
         //trække kort i og j ud
         String e= a[i];
@@ -52,4 +52,5 @@ public class Chancekortdec {
         }
 
     }
+
 }

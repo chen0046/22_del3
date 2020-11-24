@@ -10,6 +10,7 @@ public class BoardController {
     public BoardController() {
         board = new Board();
         gui_fields = new GUI_Field[24];
+        board.setOwnableFields(board.fields);
         board.setFields(board.fields);
         int i = 0;
         while (i < 24) {
@@ -57,7 +58,7 @@ public class BoardController {
         this.board = board;
     }
 
-    public void playerLandOnField(Spiller spiller, int fieldID){
+    public void playerLandOnField(Spiller currentSpiller, int fieldID){
         if (board.getFields()[fieldID].isStart()) {
 
         }
@@ -74,18 +75,21 @@ public class BoardController {
 
         }
         else {
-            OwnableField ownable=(OwnableField)board.getFields()[fieldID];
+            OwnableField ownable = (OwnableField)board.getFields()[fieldID];
             int ejer = ownable.getEjer();
             if (ownable.getEjer()==-1){
                 //TODO Hvad skal der ske hvis ingen ejer feltet
-                ownable.getPris();
-                ownable.setEjer(spiller.getSpillerID());
+                ownable.setEjer(currentSpiller.getSpillerID());
+                currentSpiller.spillerKonto.setBalance(- ownable.getPris());
             }
-            else if (spiller.getSpillerID()==ejer){
+            else if (currentSpiller.getSpillerID()==ejer){
             //TODO Hvad sker der hvis spilleren ejer feltet
+
             }
-            else{
+            else if (ejer != -1 && ejer != currentSpiller.getSpillerID()){
                 //TODO HVad sker der hvis spilleren ikke ejer feltet
+                currentSpiller.spillerKonto.setBalance( - ownable.getHusleje());
+                SpillerController.spillere[ejer].spillerKonto.setBalance( + ownable.getHusleje());
             }
 
 

@@ -3,7 +3,7 @@ import gui_main.GUI;
 
 public class SpillerController {
 
-    Spiller[] spillere;
+    static Spiller[] spillere;
     public int spillerAntal;
     GUI_Player[] gui_players;
 

@@ -8,7 +8,7 @@ public class Consol {
     SpillerController spillerController = new SpillerController();
 
     public void Startgame() {
-        int numberInput = gui.getUserInteger("Hvor mange spiller i dag?");
+        int numberInput = gui.getUserInteger("Hvor mange spiller i dag? I kan spille mellem 2 og 4 spillere.");
         spillerController.makePlayers(numberInput);
         askName(numberInput);
     }
@@ -21,14 +21,18 @@ public class Consol {
             spillerController.spillere[var] = new Spiller();
             spillerController.spillere[var].setNavn(navn);
             spillerController.spillere[var].setPos(0);
+            spillerController.spillere[var].setSpillerID(var);
             if (amount == 2) {
                 spillerController.spillere[var].spillerKonto.setBalance(20);
             }
             else if (amount == 3) {
                 spillerController.spillere[var].spillerKonto.setBalance(18);
             }
-            else {
+            else if (amount == 4){
                 spillerController.spillere[var].spillerKonto.setBalance(16);
+            }
+            else {
+
             }
             spillerController.gui_players[var] = new GUI_Player(spillerController.spillere[var].getNavn(), spillerController.spillere[var].spillerKonto.getBalance());
             gui.addPlayer(spillerController.getGui_players()[var]);
@@ -50,6 +54,8 @@ public class Consol {
             gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], false);
             spillerController.movePlayer(t, terning.henttotal());
             gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], true);
+            boardController.playerLandOnField(spillerController.getSpillere()[t], spillerController.getSpillere()[t].getPos());
+            spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
             t++;
 
         }
