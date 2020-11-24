@@ -14,7 +14,7 @@ public class Spiller {
     public void setPos(int pos) {
         this.pos = pos;
         if(getPos() > 23) {
-            pos = getPos() - 23;
+            this.pos = getPos() - 23;
         }
     }
 
