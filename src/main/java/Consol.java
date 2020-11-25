@@ -56,6 +56,22 @@ public class Consol {
             if(t > spillerController.spillere.length - 1) {
                 t = 0;
             }
+            if(spillerController.getSpillere()[t].isInJail()) {
+                if(spillerController.getSpillere()[t].isHasJailCard()) {
+                    boolean selection = gui.getUserLeftButtonPressed("Vil du bruge dit 'kom-ud-af-fængselskort'","Brug fængselskort","Betal M1");
+                    if (selection = true){
+                        spillerController.getSpillere()[t].setHasJailCard(false);
+                    }
+                    else {
+                        spillerController.getSpillere()[t].spillerKonto.setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance()-1);
+                    }
+                }
+                else{
+                    gui.showMessage("Du er kommet i Fængsel og har ikke noget Kort for at komme fri\n Du betaler M1 for at komme ud");
+                    spillerController.getSpillere()[t].spillerKonto.setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance()-1);
+                }
+                spillerController.getSpillere()[t].setInJail(false);
+            }
             gui.getUserButtonPressed("hej", "Slå terningen");
             terning.roll();
             gui.setDie(terning.henttotal());

@@ -7,7 +7,7 @@ public class OwnableField extends Field{
         super();
         this.pris = pris;
         this.husleje = husleje;
-        this.ejer=-1;
+        this.ejer = -1;
     }
 
     public int getPris() {

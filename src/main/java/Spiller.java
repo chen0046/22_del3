@@ -6,6 +6,26 @@ public class Spiller {
     Konto spillerKonto = new Konto();
     int pos;
     int spillerID;
+    boolean inJail;
+    boolean hasJailCard=true;
+
+    public boolean isHasJailCard() {
+        return hasJailCard;
+    }
+
+    public void setHasJailCard(boolean hasJailCard) {
+        this.hasJailCard = hasJailCard;
+    }
+
+    public boolean isInJail() {
+        return inJail;
+    }
+
+    public void setInJail(boolean inJail) {
+        this.inJail = inJail;
+    }
+
+
 
     public int getPos() {
         return pos;

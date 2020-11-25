@@ -74,6 +74,7 @@ public class BoardController {
         }
         else if (board.getFields()[fieldID].isGoToJail()){
         currentSpiller.setPos(6);
+        currentSpiller.setInJail(true);
         }
         else {
             OwnableField ownable = (OwnableField)board.getFields()[fieldID];
