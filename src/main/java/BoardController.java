@@ -1,5 +1,5 @@
 import gui_fields.*;
-
+import gui_main.GUI;
 import java.awt.*;
 
 
@@ -73,7 +73,7 @@ public class BoardController {
 
         }
         else if (board.getFields()[fieldID].isGoToJail()){
-
+        currentSpiller.setPos(6);
         }
         else {
             OwnableField ownable = (OwnableField)board.getFields()[fieldID];
@@ -82,6 +82,7 @@ public class BoardController {
                 //TODO Hvad skal der ske hvis ingen ejer feltet
                 ownable.setEjer(currentSpiller.getSpillerID());
                 currentSpiller.spillerKonto.setBalance(- ownable.getPris());
+                gui_fields[fieldID].setTitle(board.getFields()[fieldID].getTitle() + "\nEjes af: " + currentSpiller.getNavn());
             }
             else if (currentSpiller.getSpillerID()==ejer){
             //TODO Hvad sker der hvis spilleren ejer feltet

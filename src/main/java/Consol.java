@@ -53,8 +53,8 @@ public class Consol {
             gui.setDie(terning.henttotal());
             gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], false);
             spillerController.movePlayer(t, terning.henttotal());
-            gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], true);
             boardController.playerLandOnField(spillerController.getSpillere()[t], spillerController.getSpillere()[t].getPos());
+            gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], true);
             spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
             t++;
 
