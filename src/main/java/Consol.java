@@ -39,9 +39,6 @@ public class Consol {
             else if (amount == 4){
                 spillerController.spillere[var].spillerKonto.setBalance(16);
             }
-            else {
-
-            }
             spillerController.gui_players[var] = new GUI_Player(spillerController.spillere[var].getNavn(), spillerController.spillere[var].spillerKonto.getBalance());
             gui.addPlayer(spillerController.getGui_players()[var]);
             gui.getFields()[spillerController.spillere[var].getPos()].setCar(spillerController.getGui_players()[var], true);
@@ -72,16 +69,27 @@ public class Consol {
                 }
                 spillerController.getSpillere()[t].setInJail(false);
             }
-            gui.getUserButtonPressed("hej", "Slå terningen");
-            terning.roll();
-            gui.setDie(terning.henttotal());
-            gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], false);
-            spillerController.movePlayer(t, terning.henttotal());
-            boardController.playerLandOnField(spillerController.getSpillere()[t], spillerController.getSpillere()[t].getPos());
-            gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], true);
+            turn(t);
+            t++;
+        }
+    }
+    public void turn (int playerindex) {
+        gui.getUserButtonPressed("hej", "Slå terningen");
+        terning.roll();
+        gui.setDie(terning.henttotal());
+        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+        spillerController.movePlayer(playerindex, terning.henttotal());
+        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
+        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+        updateAccountView(spillerController.spillere.length);
+    }
+    public void updateAccountView(int amount) {
+        int t = 0;
+        while(t < amount){
             spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
             t++;
         }
+
     }
 }
 
