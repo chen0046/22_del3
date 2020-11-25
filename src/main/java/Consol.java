@@ -48,17 +48,28 @@ public class Consol {
             if(t > spillerController.spillere.length - 1) {
                 t = 0;
             }
-            gui.getUserButtonPressed("hej", "Slå terningen");
-            terning.roll();
-            gui.setDie(terning.henttotal());
-            gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], false);
-            spillerController.movePlayer(t, terning.henttotal());
-            boardController.playerLandOnField(spillerController.getSpillere()[t], spillerController.getSpillere()[t].getPos());
-            gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], true);
-            spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
+            turn(t);
             t++;
 
         }
+    }
+    public void turn (int playerindex) {
+        gui.getUserButtonPressed("hej", "Slå terningen");
+        terning.roll();
+        gui.setDie(terning.henttotal());
+        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+        spillerController.movePlayer(playerindex, terning.henttotal());
+        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
+        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+        updateAccountView(spillerController.spillere.length);
+    }
+    public void updateAccountView(int amount) {
+        int t = 0;
+        while(t < amount){
+            spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
+            t++;
+        }
+
     }
 }
 
