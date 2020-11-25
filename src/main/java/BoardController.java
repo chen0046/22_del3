@@ -36,6 +36,7 @@ public class BoardController {
                 gui_fields[i].setSubText(board.getFields()[i].getSubText());
                 gui_fields[i].setForeGroundColor(board.getFields()[i].getMain());
                 gui_fields[i].setBackGroundColor(board.getFields()[i].getSecondary());
+
             }
         i++;
     }
