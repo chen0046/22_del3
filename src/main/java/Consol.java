@@ -59,13 +59,13 @@ public class Consol {
                     if (selection = true){
                         spillerController.getSpillere()[t].setHasJailCard(false);
                     }
-                    else {
-                        spillerController.getSpillere()[t].spillerKonto.setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance()-1);
+                    else if (selection = false) {
+                        spillerController.getSpillere()[t].spillerKonto.setBalance( -1);
                     }
                 }
                 else{
                     gui.showMessage("Du er kommet i Fængsel og har ikke noget Kort for at komme fri\n Du betaler M1 for at komme ud");
-                    spillerController.getSpillere()[t].spillerKonto.setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance()-1);
+                    spillerController.getSpillere()[t].spillerKonto.setBalance( -1);
                 }
                 spillerController.getSpillere()[t].setInJail(false);
             }
