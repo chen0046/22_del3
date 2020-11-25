@@ -4,7 +4,6 @@ import gui_main.GUI;
 public class SpillerController {
 
     static Spiller[] spillere;
-    public int spillerAntal;
     GUI_Player[] gui_players;
 
     public SpillerController() {
@@ -14,14 +13,6 @@ public class SpillerController {
 
         public Spiller[] getSpillere () {
             return spillere;
-        }
-
-        public int getSpillerAntal () {
-            return spillerAntal;
-        }
-
-        public void setSpillerAntal (){
-            this.spillerAntal = spillerAntal;
         }
 
         public GUI_Player[] getGui_players () {

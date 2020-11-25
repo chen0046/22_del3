@@ -7,14 +7,6 @@ public class Spiller {
     int pos;
     int spillerID;
 
-    public Konto getSpillerKonto() {
-        return spillerKonto;
-    }
-
-    public void setSpillerKonto(Konto spillerKonto) {
-        this.spillerKonto = spillerKonto;
-    }
-
     public int getPos() {
         return pos;
     }

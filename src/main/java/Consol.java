@@ -8,9 +8,17 @@ public class Consol {
     SpillerController spillerController = new SpillerController();
 
     public void Startgame() {
-        int numberInput = gui.getUserInteger("Hvor mange spiller i dag? I kan spille mellem 2 og 4 spillere.");
-        spillerController.makePlayers(numberInput);
-        askName(numberInput);
+        while (true) {
+            int numberInput = gui.getUserInteger("Hvor mange spiller i dag? I kan spille mellem 2 og 4 spillere.");
+            spillerController.makePlayers(numberInput);
+            if (numberInput < 2 || numberInput > 4) {
+                gui.showMessage("Fejl Der må kun være 2-4 spillere");
+            }
+            else {
+                askName(numberInput);
+                break;
+            }
+        }
     }
 
 
@@ -57,7 +65,6 @@ public class Consol {
             gui.getFields()[spillerController.spillere[t].getPos()].setCar(spillerController.getGui_players()[t], true);
             spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
             t++;
-
         }
     }
 }

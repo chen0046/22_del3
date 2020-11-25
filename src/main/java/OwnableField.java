@@ -14,9 +14,7 @@ public class OwnableField extends Field{
         return pris;
     }
 
-    public void setPris(int pris) {
-        this.pris = pris;
-    }
+
 
     public int getEjer() {
         return ejer;
@@ -28,9 +26,5 @@ public class OwnableField extends Field{
 
     public int getHusleje() {
         return husleje;
-    }
-
-    public void setHusleje(int husleje) {
-        this.husleje = husleje;
     }
 }
