@@ -86,9 +86,7 @@ public class Consol {
         if(boardController.chanceFelt = true) {
             switch (boardController.bunke.ID) {
                 case 1:
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                     spillerController.getSpillere()[playerindex].setPos(0);
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                     spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+2);
                     break;
                 case 2:
@@ -115,22 +113,7 @@ public class Consol {
                         }
                     }
                     else if (selection = false) {
-                        OwnableField ownable = (OwnableField) boardController.board.getFields()[spillerController.getSpillere()[playerindex].getPos()];
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         spillerController.getSpillere()[playerindex].setPos(11);
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-                        if (ownable.getEjer()==-1){
-                            ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                            gui.displayChanceCard("Ingen ejer feltet så du får det gratis");
-                        }
-                        else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                            gui.displayChanceCard("Du ejer allerede dette felt");
-                        }
-                        else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                            spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                            gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                        }
                     }
             }
         }
