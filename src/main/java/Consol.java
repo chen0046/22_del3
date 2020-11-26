@@ -153,7 +153,6 @@ public class Consol {
 
     }
     public void endGame() {
-        spillerController.getSpillere()[].
     }
 
 }

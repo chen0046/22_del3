@@ -1,6 +1,7 @@
 import gui_fields.GUI_Player;
 import gui_main.GUI;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class SpillerController {
 
@@ -13,13 +14,14 @@ public class SpillerController {
     }
 
 
-        public Spiller[] getSpillere () {
+    public Spiller[] getSpillere () {
             return spillere;
         }
 
-        public GUI_Player[] getGui_players () {
+    public GUI_Player[] getGui_players () {
             return gui_players;
         }
+
     public void makePlayers(int amount) {
         this.spillere = new Spiller[amount];
         this.gui_players = new GUI_Player[amount];
@@ -29,8 +31,7 @@ public class SpillerController {
         spillere[playerIndex].setPos(spillere[playerIndex].getPos() + roll);
 
     }
-    public void sortSpillere() {
-        ArrayList<> vinder = new ArrayList<Spiller>();
-        Collections.sort(vinder, )
+    public void makeTestPlayers(int amount) {
+        this.spillere = new Spiller[amount];
     }
 }
