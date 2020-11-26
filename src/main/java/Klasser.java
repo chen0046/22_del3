@@ -3,8 +3,7 @@ public class Klasser {
        Consol consol = new Consol();
        consol.Startgame();
        consol.playGame();
-
-
+       consol.endGame();
     }
 
 }

@@ -26,12 +26,12 @@ public class Consol {
         int var = 0;
         while (var < amount) {
             String navn = gui.getUserString("Indtast spillernes navne");
-            SpillerController.spillere[var] = new Spiller();
+            spillerController.spillere[var] = new Spiller();
             spillerController.spillere[var].setNavn(navn);
-            SpillerController.spillere[var].setPos(0);
+            spillerController.spillere[var].setPos(0);
             spillerController.spillere[var].setSpillerID(var);
             if (amount == 2) {
-                spillerController.spillere[var].spillerKonto.setBalance(20);
+                SpillerController.spillere[var].spillerKonto.setBalance(20);
             }
             else if (amount == 3) {
                 SpillerController.spillere[var].spillerKonto.setBalance(18);
@@ -70,6 +70,7 @@ public class Consol {
                 spillerController.getSpillere()[t].setInJail(false);
             }
             turn(t);
+
             t++;
         }
     }
@@ -253,6 +254,8 @@ public class Consol {
             t++;
         }
 
+    }
+    public void endGame() {
     }
 
 }

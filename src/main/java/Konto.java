@@ -15,9 +15,6 @@ public class Konto {
      //Vi laver en setter som sørger for at kontoen aldrig kan komme under 0 og sørger for at vi kan
     //sætte kontoens værdi til en ny værdi når vi bruger den i andre klasser
     public void setBalance(int balance) {
-        this.balance += balance;
-        if (this.balance < 0) {
-            this.balance = 0;
+        this.balance = balance;
         }
-    }
     }
