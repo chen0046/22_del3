@@ -83,6 +83,24 @@ public class Consol {
         gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
         updateView(spillerController.spillere.length);
         gui.displayChanceCard(boardController.flavorTekst);
+        if(boardController.chanceFelt = true) {
+            switch (boardController.bunke.ID) {
+                case 1:
+                    spillerController.getSpillere()[playerindex].setPos(0);
+                    spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+2);
+                    break;
+                case 2:
+
+                case 3:
+                    boolean selection = gui.getUserLeftButtonPressed("vælg et orange felt", "Skaterpark", "Svømmepool");
+                    if (selection = true) {
+                        spillerController.getSpillere()[playerindex].setPos(10);
+                    }
+                    else if (selection = false) {
+                        spillerController.getSpillere()[playerindex].setPos(11);
+                    }
+            }
+        }
     }
     public void updateView(int amount) {
         int t = 0;

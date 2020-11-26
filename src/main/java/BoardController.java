@@ -8,7 +8,7 @@ public class BoardController {
     GUI_Field[] gui_fields;
     ChanceKortBunke bunke = new ChanceKortBunke();
     String flavorTekst;
-
+    boolean chanceFelt;
 
     public BoardController() {
         board = new Board();
@@ -62,17 +62,21 @@ public class BoardController {
         if (board.getFields()[fieldID].isStart()) {
 
         } else if (board.getFields()[fieldID].isJail()) { this.flavorTekst = "Du er på besøg i fængslet. De har gratis parkering";
-
+        chanceFelt = false;
         } else if (board.getFields()[fieldID].isChance()) {this.flavorTekst = "Træk et kort";
-
+        chanceFelt = true;
+        bunke.træk();
+        this.flavorTekst = bunke.hentT();
 
         } else if (board.getFields()[fieldID].isParkering()) { this.flavorTekst = "Gratis parkering";
-
+        chanceFelt = false;
         } else if (board.getFields()[fieldID].isGoToJail()) {
+            chanceFelt = false;
             this.flavorTekst = "Du er desværre røget i fængsel";
             currentSpiller.setPos(6);
             currentSpiller.setInJail(true);
         } else {
+            chanceFelt = false;
             OwnableField ownable = (OwnableField) board.getFields()[fieldID];
             if (ownable.getEjer() == -1) {
                 //TODO Hvad skal der ske hvis ingen ejer feltet
