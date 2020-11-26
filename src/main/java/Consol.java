@@ -56,10 +56,10 @@ public class Consol {
             if(spillerController.getSpillere()[t].isInJail()) {
                 if(spillerController.getSpillere()[t].isHasJailCard()) {
                     boolean selection = gui.getUserLeftButtonPressed("Vil du bruge dit 'kom-ud-af-fængselskort'","Brug fængselskort","Betal M1");
-                    if (selection = true){
+                    if (selection == true){
                         spillerController.getSpillere()[t].setHasJailCard(false);
                     }
-                    else if (selection = false) {
+                    else if (selection == false) {
                         spillerController.getSpillere()[t].spillerKonto.setBalance( -1);
                     }
                 }
@@ -87,7 +87,6 @@ public class Consol {
         updateView(SpillerController.spillere.length);
         gui.displayChanceCard(boardController.flavorTekst);
         if(boardController.chanceFelt = true) {
-            OwnableField ownable = (OwnableField) boardController.board.getFields()[spillerController.getSpillere()[playerindex].getPos()];
             switch (boardController.bunke.ID) {
                 case 1:
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
@@ -105,40 +104,17 @@ public class Consol {
                     break;
                 case 3:
                     boolean selection = gui.getUserLeftButtonPressed("vælg et orange felt", "Skaterpark", "Svømmepool");
-                    if (selection = true) {
+                    if (selection == true) {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
-                        spillerController.getSpillere()[playerindex].setPos(10);
+                        boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 10);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-
-                        if (ownable.getEjer()==-1){
-                            ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                            gui.displayChanceCard("Ingen ejer feltet så du får det gratis");
-                        }
-                        else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                            gui.displayChanceCard("Du ejer allerede dette felt");
-                        }
-                        else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                            spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                            gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                        }
+                        gui.displayChanceCard(boardController.flavorTekst);
                     }
-                    else if (selection = false) {
+                    else if (selection == false) {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
-                        spillerController.getSpillere()[playerindex].setPos(11);
+                        boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 11);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-                        if (ownable.getEjer()==-1){
-                            ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                            gui.displayChanceCard("Ingen ejer feltet så du får det gratis");
-                        }
-                        else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                            gui.displayChanceCard("Du ejer allerede dette felt");
-                        }
-                        else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                            spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                            gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                        }
+                        gui.displayChanceCard(boardController.flavorTekst);
                     }
                     break;
                 case 4:
@@ -151,60 +127,26 @@ public class Consol {
                     break;
                 case 8:
                     boolean selection2 = gui.getUserLeftButtonPressed("vælg et lyseblåt felt", "Slikbutikken", "Iskiosken");
-                    if (selection2 = true) {
+                    if (selection2 ==true) {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
-                        spillerController.getSpillere()[playerindex].setPos(4);
+                        boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 4);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-
-                        if (ownable.getEjer()==-1){
-                            ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                            gui.displayChanceCard("Ingen ejer feltet så du får det gratis");
-                        }
-                        else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                            gui.displayChanceCard("Du ejer allerede dette felt");
-                        }
-                        else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                            spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                            gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                        }
+                        gui.displayChanceCard(boardController.flavorTekst);
                     }
-                    else if (selection2 = false) {
+                    else if (selection2 == false) {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
-                        spillerController.getSpillere()[playerindex].setPos(5);
+                        boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 5);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-                        if (ownable.getEjer()==-1){
-                            ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                            gui.displayChanceCard("Ingen ejer feltet så du får det gratis");
-                        }
-                        else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                            gui.displayChanceCard("Du ejer allerede dette felt");
-                        }
-                        else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                            spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                            gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                        }
+                        gui.displayChanceCard(boardController.flavorTekst);
                     }
                     break;
                 case 9:
                     break;
                 case 10:
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
-                    spillerController.getSpillere()[playerindex].setPos(23);
+                    boardController.playerLandOnField(spillerController.getSpillere()[playerindex], 23);
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                    if (ownable.getEjer()==-1){
-                        ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                        spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getPris());
-                        gui.displayChanceCard("Ingen ejer feltet så du køber det");
-                    }
-                    else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                        gui.displayChanceCard("Du ejer allerede dette felt");
-                    }
-                    else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                        spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                        gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                    }
+                    gui.displayChanceCard(boardController.flavorTekst);
                     break;
                 case 11:
                     break;
@@ -214,40 +156,17 @@ public class Consol {
                     break;
                 case 14:
                     boolean selection3 = gui.getUserLeftButtonPressed("vælg et rødt felt", "Spillehallen", "Biografen");
-                    if (selection3 = true) {
+                    if (selection3 == true) {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
-                        spillerController.getSpillere()[playerindex].setPos(13);
+                        boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 13);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-
-                        if (ownable.getEjer()==-1){
-                            ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                            gui.displayChanceCard("Ingen ejer feltet så du får det gratis");
-                        }
-                        else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                            gui.displayChanceCard("Du ejer allerede dette felt");
-                        }
-                        else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                            spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                            gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                        }
+                        gui.displayChanceCard(boardController.flavorTekst);
                     }
-                    else if (selection3 = false) {
+                    else if (selection3 == false) {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
-                        spillerController.getSpillere()[playerindex].setPos(14);
+                        boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 14);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-                        boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-                        if (ownable.getEjer()==-1){
-                            ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
-                            gui.displayChanceCard("Ingen ejer feltet så du får det gratis");
-                        }
-                        else if (ownable.getEjer()==spillerController.getSpillere()[playerindex].getSpillerID()){
-                            gui.displayChanceCard("Du ejer allerede dette felt");
-                        }
-                        else if (ownable.getEjer()!=spillerController.getSpillere()[playerindex].getSpillerID() && ownable.getEjer()!=-1){
-                            spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
-                            gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
-                        }
+                        gui.displayChanceCard(boardController.flavorTekst);
                     }
                     break;
                 case 15:
