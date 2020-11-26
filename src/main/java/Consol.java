@@ -140,9 +140,13 @@ public class Consol {
                     }
                     break;
                 case 4:
+                    break;
                 case 5:
+                    break;
                 case 6:
+                    break;
                 case 7:
+                    break;
                 case 8:
                     boolean selection2 = gui.getUserLeftButtonPressed("vælg et lyseblåt felt", "Slikbutikken", "Iskiosken");
                     if (selection2 = true) {
@@ -182,6 +186,7 @@ public class Consol {
                     }
                     break;
                 case 9:
+                    break;
                 case 10:
                     gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                     spillerController.getSpillere()[playerindex].setPos(23);
@@ -198,9 +203,13 @@ public class Consol {
                         spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getHusleje());
                         gui.displayChanceCard("Der er en anden der ejer dette felt, så du skal betale leje");
                     }
+                    break;
                 case 11:
+                    break;
                 case 12:
+                    break;
                 case 13:
+                    break;
                 case 14:
                     boolean selection3 = gui.getUserLeftButtonPressed("vælg et rødt felt", "Spillehallen", "Biografen");
                     if (selection3 = true) {
@@ -240,7 +249,9 @@ public class Consol {
                     }
                     break;
                 case 15:
+                    break;
                 case 16:
+                    break;
 
             }
             }
