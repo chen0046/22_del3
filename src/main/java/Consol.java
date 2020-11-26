@@ -26,10 +26,10 @@ public class Consol {
         int var = 0;
         while (var < amount) {
             String navn = gui.getUserString("Indtast spillernes navne");
-            spillerController.spillere[var] = new Spiller();
-            spillerController.spillere[var].setNavn(navn);
-            spillerController.spillere[var].setPos(0);
-            spillerController.spillere[var].setSpillerID(var);
+            SpillerController.spillere[var] = new Spiller();
+            SpillerController.spillere[var].setNavn(navn);
+            SpillerController.spillere[var].setPos(0);
+            SpillerController.spillere[var].setSpillerID(var);
             if (amount == 2) {
                 SpillerController.spillere[var].spillerKonto.setBalance(20);
             }
@@ -39,9 +39,9 @@ public class Consol {
             else if (amount == 4){
                 SpillerController.spillere[var].spillerKonto.setBalance(16);
             }
-            spillerController.gui_players[var] = new GUI_Player(SpillerController.spillere[var].getNavn(), spillerController.spillere[var].spillerKonto.getBalance());
+            spillerController.gui_players[var] = new GUI_Player(SpillerController.spillere[var].getNavn(), SpillerController.spillere[var].spillerKonto.getBalance());
             gui.addPlayer(spillerController.getGui_players()[var]);
-            gui.getFields()[spillerController.spillere[var].getPos()].setCar(spillerController.getGui_players()[var], true);
+            gui.getFields()[SpillerController.spillere[var].getPos()].setCar(spillerController.getGui_players()[var], true);
             var++;
 
         }
@@ -50,7 +50,7 @@ public class Consol {
     public void playGame() {
         int t = 0;
         while (true) {
-            if(t > spillerController.spillere.length - 1) {
+            if(t > SpillerController.spillere.length - 1) {
                 t = 0;
             }
             if(spillerController.getSpillere()[t].isInJail()) {
@@ -70,7 +70,9 @@ public class Consol {
                 spillerController.getSpillere()[t].setInJail(false);
             }
             turn(t);
-
+            if(spillerController.getSpillere()[t].spillerKonto.getBalance() < 0) {
+                break;
+            }
             t++;
         }
     }
@@ -78,35 +80,35 @@ public class Consol {
         gui.getUserButtonPressed("hej", "Slå terningen");
         terning.roll();
         gui.setDie(terning.henttotal());
-        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
         spillerController.movePlayer(playerindex, terning.henttotal());
         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-        updateView(spillerController.spillere.length);
+        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+        updateView(SpillerController.spillere.length);
         gui.displayChanceCard(boardController.flavorTekst);
         if(boardController.chanceFelt = true) {
             OwnableField ownable = (OwnableField) boardController.board.getFields()[spillerController.getSpillere()[playerindex].getPos()];
             switch (boardController.bunke.ID) {
                 case 1:
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                    gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                     spillerController.getSpillere()[playerindex].setPos(0);
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                    gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                     spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+2);
                     break;
                 case 2:
                     int valg = gui.getUserInteger("Hvor mange felter vil du rykke frem?", 1, 5);
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                    gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                     spillerController.movePlayer(playerindex, valg);
                     boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                    gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                     gui.displayChanceCard(boardController.flavorTekst);
                     break;
                 case 3:
                     boolean selection = gui.getUserLeftButtonPressed("vælg et orange felt", "Skaterpark", "Svømmepool");
                     if (selection = true) {
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         spillerController.getSpillere()[playerindex].setPos(10);
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
 
                         if (ownable.getEjer()==-1){
@@ -122,9 +124,9 @@ public class Consol {
                         }
                     }
                     else if (selection = false) {
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         spillerController.getSpillere()[playerindex].setPos(11);
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
                         if (ownable.getEjer()==-1){
                             ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
@@ -150,9 +152,9 @@ public class Consol {
                 case 8:
                     boolean selection2 = gui.getUserLeftButtonPressed("vælg et lyseblåt felt", "Slikbutikken", "Iskiosken");
                     if (selection2 = true) {
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         spillerController.getSpillere()[playerindex].setPos(4);
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
 
                         if (ownable.getEjer()==-1){
@@ -168,9 +170,9 @@ public class Consol {
                         }
                     }
                     else if (selection2 = false) {
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         spillerController.getSpillere()[playerindex].setPos(5);
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
                         if (ownable.getEjer()==-1){
                             ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
@@ -188,9 +190,9 @@ public class Consol {
                 case 9:
                     break;
                 case 10:
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                    gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                     spillerController.getSpillere()[playerindex].setPos(23);
-                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                    gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                     if (ownable.getEjer()==-1){
                         ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
                         spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-ownable.getPris());
@@ -213,9 +215,9 @@ public class Consol {
                 case 14:
                     boolean selection3 = gui.getUserLeftButtonPressed("vælg et rødt felt", "Spillehallen", "Biografen");
                     if (selection3 = true) {
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         spillerController.getSpillere()[playerindex].setPos(13);
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
 
                         if (ownable.getEjer()==-1){
@@ -231,9 +233,9 @@ public class Consol {
                         }
                     }
                     else if (selection3 = false) {
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         spillerController.getSpillere()[playerindex].setPos(14);
-                        gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                        gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
                         if (ownable.getEjer()==-1){
                             ownable.setEjer(spillerController.getSpillere()[playerindex].getSpillerID());
@@ -267,6 +269,8 @@ public class Consol {
 
     }
     public void endGame() {
+        spillerController.sortPLayers();
+        gui.displayChanceCard("Taberen er fundet! Det blev: " + spillerController.getSpillere()[0].getNavn() + "Vinderen er: " + spillerController.getSpillere()[spillerController.getSpillere().length - 1].getNavn());
     }
 
 }
