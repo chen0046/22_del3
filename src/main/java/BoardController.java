@@ -29,7 +29,7 @@ public class BoardController {
             else if (board.getFields()[i].isGoToJail()){
                 gui_fields[i] =new GUI_Jail("default", "Gå i fængsel", "Gå i fængsel", "Du skal i fængsel!\nFor at komme ud af fængslet skal du, i din næste tur, enten betale M1 eller bruge et 'Du løslades unden omkostninger'- kort.", new Color(125, 125, 125), Color.BLACK);
             }
-            else {
+            else if (board.getFields()[i].isOwnable()){
                 gui_fields[i] = new GUI_Street();
                 gui_fields[i].setTitle(board.getFields()[i].getTitle());
                 gui_fields[i].setDescription(board.getFields()[i].getDescription());
@@ -84,7 +84,8 @@ public class BoardController {
                 ownable.setEjer(currentSpiller.getSpillerID());
                 currentSpiller.spillerKonto.setBalance(- ownable.getPris());
                 gui_fields[fieldID].setTitle(board.getFields()[fieldID].getTitle() + "\nEjes af: " + currentSpiller.getNavn());
-            }
+
+                }
             else if (currentSpiller.getSpillerID()==ejer){
             //TODO Hvad sker der hvis spilleren ejer feltet
 

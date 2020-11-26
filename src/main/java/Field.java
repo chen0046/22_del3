@@ -13,6 +13,7 @@ public class Field {
     boolean chance;
     boolean parkering;
     boolean goToJail;
+    boolean ownable = false;
 
     public boolean isJail() {
         return jail;
@@ -35,6 +36,13 @@ public class Field {
         return goToJail;
     }
     public void setGoToJail(boolean goToJail){this.goToJail = goToJail;}
+
+    public boolean isOwnable() {
+        return ownable;
+    }
+    public void setOwnable(boolean ownable) {
+        this.ownable = ownable;
+    }
 
 
     public Color getMain() {
@@ -96,7 +104,6 @@ public class Field {
     public void setStart(boolean start) {
         this.start = start;
     }
-
 
     public void Brætfunktion(){
 
