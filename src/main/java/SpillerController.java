@@ -1,10 +1,12 @@
 import gui_fields.GUI_Player;
 import gui_main.GUI;
+import java.util.*;
 
 public class SpillerController {
 
     static Spiller[] spillere;
     GUI_Player[] gui_players;
+
 
     public SpillerController() {
 
@@ -26,5 +28,9 @@ public class SpillerController {
     public void movePlayer(int playerIndex, int roll) {
         spillere[playerIndex].setPos(spillere[playerIndex].getPos() + roll);
 
+    }
+    public void sortSpillere() {
+        ArrayList<> vinder = new ArrayList<Spiller>();
+        Collections.sort(vinder, )
     }
 }
