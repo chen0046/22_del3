@@ -2,8 +2,10 @@ public class ChanceKortBunke {
     Chancekort[] bunke;
     String T;
     int ID;
+    int topKort;
 
     public ChanceKortBunke() {
+        setTopKort(0);
         bunke = new Chancekort[16];
         bunke[0] = new Chancekort("Ryk frem til START. modtag M2", 1);
         bunke[1] = new Chancekort("Ryk op til 5 felter frem!", 2);
@@ -26,8 +28,9 @@ public class ChanceKortBunke {
     }
 
     public void træk() {
-        this.T = bunke[0].kortTekst;
-        this.ID = bunke[0].kortID;
+        this.T = bunke[getTopKort()].kortTekst;
+        this.ID = bunke[getTopKort()].kortID;
+        setTopKort(getTopKort() + 1);
     }
 
     public String hentT() {return T; }
@@ -48,4 +51,14 @@ public class ChanceKortBunke {
         }
     }
 
+    public int getTopKort() {
+        return topKort;
+    }
+
+    public void setTopKort(int topKort) {
+        this.topKort = topKort;
+        if(topKort > 15) {
+            setTopKort(getTopKort() - 16);
+        }
+    }
 }
