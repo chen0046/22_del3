@@ -13,7 +13,7 @@ public class Field {
     boolean chance;
     boolean parkering;
     boolean goToJail;
-    boolean ownable = false;
+    boolean ownable;
 
     public boolean isJail() {
         return jail;

@@ -81,10 +81,11 @@ public class Consol {
         spillerController.movePlayer(playerindex, terning.henttotal());
         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
         gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
-        updateAccountView(spillerController.spillere.length);
+        updateView(spillerController.spillere.length);
     }
-    public void updateAccountView(int amount) {
+    public void updateView(int amount) {
         int t = 0;
+        boardController.getGui_fields();
         while(t < amount){
             spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
             t++;
