@@ -82,6 +82,7 @@ public class Consol {
         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
         gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
         updateView(spillerController.spillere.length);
+        gui.displayChanceCard(boardController.flavorTekst);
     }
     public void updateView(int amount) {
         int t = 0;
@@ -92,6 +93,7 @@ public class Consol {
         }
 
     }
+
 }
 
 

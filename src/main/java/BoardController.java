@@ -6,6 +6,9 @@ import java.awt.*;
 public class BoardController {
     Board board;
     GUI_Field[] gui_fields;
+    ChanceKortBunke bunke = new ChanceKortBunke();
+    String flavorTekst;
+
 
     public BoardController() {
         board = new Board();
@@ -57,13 +60,15 @@ public class BoardController {
     public void playerLandOnField(Spiller currentSpiller, int fieldID) {
         if (board.getFields()[fieldID].isStart()) {
 
-        } else if (board.getFields()[fieldID].isJail()) {
+        } else if (board.getFields()[fieldID].isJail()) { this.flavorTekst = "Du er på besøg i fængslet. De har gratis parkering";
 
-        } else if (board.getFields()[fieldID].isChance()) {
+        } else if (board.getFields()[fieldID].isChance()) {this.flavorTekst = "Træk et kort";
 
-        } else if (board.getFields()[fieldID].isParkering()) {
+
+        } else if (board.getFields()[fieldID].isParkering()) { this.flavorTekst = "Gratis parkering";
 
         } else if (board.getFields()[fieldID].isGoToJail()) {
+            this.flavorTekst = "Du er desværre røget i fængsel";
             currentSpiller.setPos(6);
             currentSpiller.setInJail(true);
         } else {
@@ -73,6 +78,7 @@ public class BoardController {
                 ownable.setEjer(currentSpiller.getSpillerID());
                 currentSpiller.spillerKonto.setBalance(-ownable.getPris());
                 gui_fields[fieldID].setTitle(board.getFields()[fieldID].getTitle() + "\nEjes af: " + currentSpiller.getNavn());
+                this.flavorTekst = board.getFields()[fieldID].getTitle() + "er blevet købt af: " + currentSpiller.getNavn();
                 if (board.getFields()[fieldID - 1].isOwnable()) {
                     OwnableField ownableBefore = (OwnableField) board.getFields()[fieldID - 1];
                     if (ownable.getEjer() == ownableBefore.getEjer()) {
@@ -82,6 +88,7 @@ public class BoardController {
                         board.getFields()[fieldID - 1].setSubText("Leje: M" + ownableBefore.getHusleje());
                         gui_fields[fieldID].setSubText(board.getFields()[fieldID].getSubText());
                         gui_fields[fieldID - 1].setSubText(board.getFields()[fieldID - 1].getSubText());
+                        this.flavorTekst = board.getFields()[fieldID].getTitle() + "er blevet købt af: " + currentSpiller.getNavn() + " Du ejer nu begge felter af samme farve og lejen er nu fordoblet";
                     }
                 } else if (fieldID != 23) {
                     if (board.getFields()[fieldID + 1].isOwnable()) {
@@ -93,19 +100,21 @@ public class BoardController {
                             board.getFields()[fieldID + 1].setSubText("Leje: M" + ownableAfter.getHusleje());
                             gui_fields[fieldID].setSubText(board.getFields()[fieldID].getSubText());
                             gui_fields[fieldID + 1].setSubText(board.getFields()[fieldID + 1].getSubText());
-
+                            this.flavorTekst = board.getFields()[fieldID].getTitle() + "er blevet købt af: " + currentSpiller.getNavn() + " Du ejer nu begge felter af samme farve og lejen er nu fordoblet";
                         }
                     }
                 }
             }
             else if (currentSpiller.getSpillerID() == ownable.getEjer()) {
                         //TODO Hvad sker der hvis spilleren ejer feltet
+                this.flavorTekst = "Du ejer allerede feltet";
 
                     }
             else if (currentSpiller.getSpillerID() != ownable.getEjer() && ownable.getEjer() != -1){
                         //TODO HVad sker der hvis spilleren ikke ejer feltet
                         currentSpiller.spillerKonto.setBalance(- ownable.getHusleje());
                         SpillerController.spillere[ownable.getEjer()].spillerKonto.setBalance(+ ownable.getHusleje());
+                        this.flavorTekst = "Du er landet på en anden spillers felt.";
                     }
 
 
