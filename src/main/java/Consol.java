@@ -87,13 +87,19 @@ public class Consol {
             switch (boardController.bunke.ID) {
                 case 1:
                     spillerController.getSpillere()[playerindex].setPos(0);
-                    spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+2);
+                    spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+ 2);
                     break;
                 case 2:
-
+                    int valg = gui.getUserInteger("Hvor mange felter vil du rykke frem?", 1, 5);
+                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
+                    spillerController.movePlayer(playerindex, valg);
+                    boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
+                    gui.getFields()[spillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+                    gui.displayChanceCard(boardController.flavorTekst);
                 case 3:
                     boolean selection = gui.getUserLeftButtonPressed("vælg et orange felt", "Skaterpark", "Svømmepool");
                     if (selection = true) {
+
                         spillerController.getSpillere()[playerindex].setPos(10);
                     }
                     else if (selection = false) {
