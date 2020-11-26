@@ -33,5 +33,19 @@ public class ChanceKortBunke {
     public String hentT() {return T; }
     public int hentID() {return ID; }
 
+    public void bland() {
+        int t = 0;
+        while(t < 1000) {
+            int i = (int) (Math.random() * 15);
+            int j = (int) (Math.random() * 15);
+
+            Chancekort e = bunke[i];
+            Chancekort f = bunke[j];
+
+            bunke[i] = f;
+            bunke[j] = e;
+            t++;
+        }
+    }
 
 }

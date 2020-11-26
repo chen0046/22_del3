@@ -15,6 +15,7 @@ public class BoardController {
         gui_fields = new GUI_Field[24];
         board.setOwnableFields(board.fields);
         board.setFields(board.fields);
+        bunke.bland();
         int i = 0;
         while (i < 24) {
             if (board.getFields()[i].isStart()) {
