@@ -77,6 +77,7 @@ public class Consol {
         }
     }
     public void turn (int playerindex) {
+        boardController.setChanceFelt(false);
         gui.getUserButtonPressed("hej", "Slå terningen");
         terning.roll();
         gui.setDie(terning.henttotal());
@@ -86,14 +87,14 @@ public class Consol {
         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
         updateView(SpillerController.spillere.length);
         gui.displayChanceCard(boardController.flavorTekst);
-        if(boardController.chanceFelt = true) {
+        if(boardController.isChanceFelt()) {
             switch (boardController.bunke.ID) {
                 case 1:
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                     spillerController.getSpillere()[playerindex].setPos(0);
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                     spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+2);
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 2:
                     int valg = gui.getUserInteger("Hvor mange felter vil du rykke frem?", 1, 5);
@@ -102,7 +103,7 @@ public class Consol {
                     boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                     gui.displayChanceCard(boardController.flavorTekst);
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 3:
                     boolean selection = gui.getUserLeftButtonPressed("vælg et orange felt", "Skaterpark", "Svømmepool");
@@ -111,7 +112,7 @@ public class Consol {
                         boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 10);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         gui.displayChanceCard(boardController.flavorTekst);
-                        boardController.chanceFelt = false;
+                        boardController.setChanceFelt(false);
                     }
                     else {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
@@ -119,19 +120,19 @@ public class Consol {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         gui.displayChanceCard(boardController.flavorTekst);
                     }
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 4:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 5:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 6:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 7:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 8:
                     boolean selection2 = gui.getUserLeftButtonPressed("vælg et lyseblåt felt", "Slikbutikken", "Iskiosken");
@@ -140,33 +141,35 @@ public class Consol {
                         boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 4);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         gui.displayChanceCard(boardController.flavorTekst);
+                        boardController.setChanceFelt(false);
                     }
                     else {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 5);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         gui.displayChanceCard(boardController.flavorTekst);
+                        boardController.setChanceFelt(false);
                     }
-                    boardController.chanceFelt = false;
                     break;
                 case 9:
-                    boardController.chanceFelt = false;
+                    spillerController.getSpillere()[playerindex].setHasJailCard(true);
+                    boardController.setChanceFelt(false);
                     break;
                 case 10:
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                     boardController.playerLandOnField(spillerController.getSpillere()[playerindex], 23);
                     gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                     gui.displayChanceCard(boardController.flavorTekst);
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 11:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 12:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 13:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 14:
                     boolean selection3 = gui.getUserLeftButtonPressed("vælg et rødt felt", "Spillehallen", "Biografen");
@@ -175,20 +178,21 @@ public class Consol {
                         boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 13);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         gui.displayChanceCard(boardController.flavorTekst);
+                        boardController.setChanceFelt(false);
                     }
                     else {
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
                         boardController.playerLandOnFieldFree(spillerController.getSpillere()[playerindex], 14);
                         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
                         gui.displayChanceCard(boardController.flavorTekst);
+                        boardController.setChanceFelt(false);
                     }
-                    boardController.chanceFelt = false;
                     break;
                 case 15:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
                 case 16:
-                    boardController.chanceFelt = false;
+                    boardController.setChanceFelt(false);
                     break;
 
             }

@@ -59,24 +59,24 @@ public class BoardController {
     }
 
     public void playerLandOnField(Spiller currentSpiller, int fieldID) {
-        if (board.getFields()[fieldID].isStart()) {
+        if (board.getFields()[fieldID].isStart()) {setChanceFelt(false);
 
         } else if (board.getFields()[fieldID].isJail()) { this.flavorTekst = "Du er på besøg i fængslet. De har gratis parkering";
-        chanceFelt = false;
+        setChanceFelt(false);
         } else if (board.getFields()[fieldID].isChance()) {this.flavorTekst = "Træk et kort";
-        chanceFelt = true;
+        setChanceFelt(true);
         bunke.træk();
         this.flavorTekst = bunke.hentT();
 
         } else if (board.getFields()[fieldID].isParkering()) { this.flavorTekst = "Gratis parkering";
-        chanceFelt = false;
+        setChanceFelt(false);
         } else if (board.getFields()[fieldID].isGoToJail()) {
-            chanceFelt = false;
+            setChanceFelt(false);
             this.flavorTekst = "Du er desværre røget i fængsel";
             currentSpiller.setPos(6);
             currentSpiller.setInJail(true);
         } else {
-            chanceFelt = false;
+            setChanceFelt(false);
             OwnableField ownable = (OwnableField) board.getFields()[fieldID];
             if (ownable.getEjer() == -1) {
                 //Hvad der sker hvis ingen ejer feltet
@@ -165,7 +165,14 @@ public class BoardController {
                 }
             }
 
-        }
+    public boolean isChanceFelt() {
+        return chanceFelt;
+    }
+
+    public void setChanceFelt(boolean chanceFelt) {
+        this.chanceFelt = chanceFelt;
+    }
+}
 
 
 

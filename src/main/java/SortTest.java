@@ -1,5 +1,4 @@
-public class SortTest {
-    public static void main(String[] args) {
+/*
         SpillerController spillerController = new SpillerController();
         spillerController.makeTestPlayers(4);
         spillerController.getSpillere()[0] = new Spiller();
@@ -50,3 +49,6 @@ public class SortTest {
         }
     }
 }
+
+
+ */
