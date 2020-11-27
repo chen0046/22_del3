@@ -1,6 +1,5 @@
 public class Spiller {
-
-    String navn; //Navn skal defineres som String da det involverer tekst
+    String navn;
     Konto spillerKonto = new Konto();
     int pos;
     int spillerID;
@@ -42,8 +41,7 @@ public class Spiller {
     public void setSpillerID(int spillerID) {
         this.spillerID = spillerID;
     }
-    /*
-    Her sørger vi for at når "askname" bliver kaldt på i andre klasser, så bliver det næste input spilleren laver
+    /* Her sørger vi for at når "askname" bliver kaldt på i andre klasser, så bliver det næste input spilleren laver
     det navnet bliver sat til */
 
     //Her gør vi så når man skriver getNavn så får man det definerede Navn

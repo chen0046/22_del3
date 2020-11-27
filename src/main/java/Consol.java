@@ -8,7 +8,7 @@ public class Consol {
     SpillerController spillerController = new SpillerController();
 
     public void Startgame() {
-        while (true) {
+        while (true) { //et loop der kører hver gang nogen indtaster et forkert antal spillere
             int numberInput = gui.getUserInteger("Hvor mange spiller i dag? I kan spille mellem 2 og 4 spillere.");
             spillerController.makePlayers(numberInput);
             if (numberInput < 2 || numberInput > 4) {
@@ -23,7 +23,8 @@ public class Consol {
 
     public void askName(int amount) {
         int var = 0;
-        while (var < amount) {
+        while (var < amount) { // Et loop som kører samme antal gange som vi har spillere
+            //den opretter spillere og sætter deres navn og udgangspunktet for deres konto
             String navn = gui.getUserString("Indtast spillernes navne");
             SpillerController.spillere[var] = new Spiller();
             SpillerController.spillere[var].setNavn(navn);
@@ -47,13 +48,14 @@ public class Consol {
 
     public void playGame() {
         int t = 0;
-        while (true) {
+        while (true) { //Et loop som kører selve spillets gang. Det breaker kun hvis en spiller taber (konto<0)
             if(t > SpillerController.spillere.length - 1) {
                 t = 0;
             }
-            if(spillerController.getSpillere()[t].isInJail()) {
-                if(spillerController.getSpillere()[t].isHasJailCard()) {
+            if(spillerController.getSpillere()[t].isInJail()) { //tjekker om spiller er i fængsel
+                if(spillerController.getSpillere()[t].isHasJailCard()) { //tjekker om spiller har 'kom ud af fængsel' kort
                     boolean selection = gui.getUserLeftButtonPressed("Vil du bruge dit 'kom-ud-af-fængselskort'","Brug fængselskort","Betal M1");
+                    //lader folk vælge om de il bruge deres kort eller ej
                     if (selection){
                         spillerController.getSpillere()[t].setHasJailCard(false);
                     }
@@ -61,7 +63,7 @@ public class Consol {
                         spillerController.getSpillere()[t].spillerKonto.setBalance( -1);
                     }
                 }
-                else{
+                else{ //intet kort, så man skal betale
                     gui.showMessage("Du er kommet i Fængsel og har ikke noget Kort for at komme fri\n Du betaler M1 for at komme ud");
                     spillerController.getSpillere()[t].spillerKonto.setBalance( -1);
                 }
@@ -74,7 +76,7 @@ public class Consol {
             t++;
         }
     }
-    public void turn (int playerindex) {
+    public void turn (int playerindex) { //fortæller hvis tur det er, lader dem slå med terningen og rykker deres spiller
         boardController.setChanceFelt(false);
         gui.getUserButtonPressed("Det er " + spillerController.getSpillere()[playerindex].getNavn() + "'s tur", "Slå terningen");
         terning.roll();
@@ -83,6 +85,7 @@ public class Consol {
         spillerController.movePlayer(playerindex, terning.henttotal());
         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], true);
+        //Opdaterer kontoerne og viser flavortekst og henter boardcontrollerswitchen hvis man lander på et chancefelt
         updateView(SpillerController.spillere.length);
         gui.displayChanceCard(boardController.flavorTekst);
         if(boardController.isChanceFelt()) {
@@ -90,7 +93,7 @@ public class Consol {
             }
         }
 
-    public void updateView(int amount) {
+    public void updateView(int amount) { //sørger for at holde spillernes kontoer opdateret
         int t = 0;
         boardController.getGui_fields();
         while(t < amount){
@@ -99,7 +102,7 @@ public class Consol {
         }
     }
 
-    public void endGame() {
+    public void endGame() { //Referer til vores sorterer og fortæller hvem taber og hvem vinder
         spillerController.sortPLayers();
         if (spillerController.getSpillere()[spillerController.getSpillere().length - 1].spillerKonto.getBalance() == spillerController.getSpillere()[spillerController.getSpillere().length - 2].spillerKonto.getBalance()) {
             gui.displayChanceCard("Taberen er fundet! Det blev: " + spillerController.getSpillere()[0].getNavn() + "\nDet blev en delt sejr til: " + spillerController.getSpillere()[spillerController.getSpillere().length - 1].getNavn() + "og " + spillerController.getSpillere()[spillerController.getSpillere().length - 2].getNavn());
@@ -108,7 +111,7 @@ public class Consol {
     }
 
     public void boardControllerSwitch(int ID,int playerindex){
-    switch (ID) {
+    switch (ID) { //En switch som har funktionaliteterne til alle chancekort
     case 1:
         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
         spillerController.getSpillere()[playerindex].setPos(0);

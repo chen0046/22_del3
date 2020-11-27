@@ -27,7 +27,7 @@ public class ChanceKortBunke {
         træk();
     }
 
-    public void træk() {
+    public void træk() { //returnerer kort tekst og kort ID og vælger det første kort i bunken og sætter et nyt topkort
         this.T = bunke[getTopKort()].kortTekst;
         this.ID = bunke[getTopKort()].kortID;
         setTopKort(getTopKort() + 1);
@@ -38,7 +38,7 @@ public class ChanceKortBunke {
 
     public void bland() {
         int t = 0;
-        while(t < 1000) {
+        while(t < 1000) { //blander alle kortene 1000 gange
             int i = (int) (Math.random() * 15);
             int j = (int) (Math.random() * 15);
 
