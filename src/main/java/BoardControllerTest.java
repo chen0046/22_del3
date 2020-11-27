@@ -1,27 +1,36 @@
-import gui_fields.GUI_Field;
-import gui_tests.PlayerTest;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardControllerTest {
 
     @Test
+    void getGui_fields() {
+    }
+
+    @Test
+    void playerLandOnField() {
+            BoardController boardController = new BoardController();
+            SpillerController spillerController = new SpillerController();
+            spillerController.makePlayers(1);
+            SpillerController.spillere[0] = new Spiller();
+            SpillerController.spillere[0].setNavn("testNavn");
+            SpillerController.spillere[0].setPos(0);
+            SpillerController.spillere[0].setSpillerID(0);
+            SpillerController.spillere[0].spillerKonto.setBalance(20);
+            OwnableField ownable = (OwnableField) boardController.board.getFields()[1];
+            boardController.playerLandOnField(spillerController.getSpillere()[0], 1);
+            assertEquals(spillerController.getSpillere()[0].getSpillerID(), ownable.getEjer());
+
+        }
+
+    @Test
+    void playerLandOnFieldFree() {
+    }
+
+    @Test
     void isChanceFelt() {
-        BoardController boardController = new BoardController();
-        Spiller spiller = new Spiller();
-        SpillerController spillerController = new SpillerController();
-        Board board = new Board();
-        GUI_Field[] testGuiFields = new GUI_Field[1];
-
-        [0]= new Field();
-        testGuiFields[0] = new GUI_Field();
-        testGuiFields[14]=new Field();
-        boardController.playerLandOnField(spiller, 1);
-        assert true(spiller currentplayer, )
-
-
-
-
     }
 
     @Test
