@@ -7,7 +7,7 @@ public class Spiller {
     int pos;
     int spillerID;
     boolean inJail;
-    boolean hasJailCard=true;
+    boolean hasJailCard;
 
     public boolean isHasJailCard() {
         return hasJailCard;

@@ -16,8 +16,5 @@ public class Konto {
     //sætte kontoens værdi til en ny værdi når vi bruger den i andre klasser
     public void setBalance(int balance) {
         this.balance += balance;
-        if (this.balance < 0) {
-            this.balance = 0;
         }
-    }
     }
