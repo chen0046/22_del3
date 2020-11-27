@@ -5,9 +5,7 @@ public class SpillerController {
     static Spiller[] spillere;
     GUI_Player[] gui_players;
 
-
     public SpillerController() { }
-
 
     public Spiller[] getSpillere () {
             return spillere;

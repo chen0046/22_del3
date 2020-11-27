@@ -41,21 +41,8 @@ public class BoardController {
         }
 
     }
-
-    public void setGui_fields(GUI_Field[] gui_fields) {
-        this.gui_fields = gui_fields;
-    }
-
     public GUI_Field[] getGui_fields() {
         return gui_fields;
-    }
-
-    public Board getBoard() {
-        return board;
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
     }
 
     public void playerLandOnField(Spiller currentSpiller, int fieldID) {

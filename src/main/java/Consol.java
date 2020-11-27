@@ -21,7 +21,6 @@ public class Consol {
         }
     }
 
-
     public void askName(int amount) {
         int var = 0;
         while (var < amount) {
@@ -43,7 +42,6 @@ public class Consol {
             gui.addPlayer(spillerController.getGui_players()[var]);
             gui.getFields()[SpillerController.spillere[var].getPos()].setCar(spillerController.getGui_players()[var], true);
             var++;
-
         }
     }
 
@@ -99,8 +97,8 @@ public class Consol {
             spillerController.gui_players[t].setBalance(spillerController.getSpillere()[t].spillerKonto.getBalance());
             t++;
         }
-
     }
+
     public void endGame() {
         spillerController.sortPLayers();
         if (spillerController.getSpillere()[spillerController.getSpillere().length - 1].spillerKonto.getBalance() == spillerController.getSpillere()[spillerController.getSpillere().length - 2].spillerKonto.getBalance()) {
@@ -108,6 +106,7 @@ public class Consol {
         }
         gui.displayChanceCard("Taberen er fundet! Det blev: " + spillerController.getSpillere()[0].getNavn() + "\nVinderen er: " + spillerController.getSpillere()[spillerController.getSpillere().length - 1].getNavn());
     }
+
     public void boardControllerSwitch(int ID,int playerindex){
     switch (ID) {
     case 1:
@@ -381,9 +380,6 @@ public class Consol {
         }
         boardController.setChanceFelt(false);
         break;
-
     }
     }
 }
-
-

@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Spiller {
 
     String navn; //Navn skal defineres som String da det involverer tekst
@@ -24,8 +22,6 @@ public class Spiller {
     public void setInJail(boolean inJail) {
         this.inJail = inJail;
     }
-
-
 
     public int getPos() {
         return pos;
