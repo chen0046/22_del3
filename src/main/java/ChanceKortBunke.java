@@ -12,7 +12,7 @@ public class ChanceKortBunke {
         bunke[2] = new Chancekort("GRATIS FELT! Ryk frem et orange felt hvis det er ledigt får du det gratis eller skal du betale leje til ejeren", 3);
         bunke[3] = new Chancekort("GRATIS FELT! Ryk frem til et brunt eller gult felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.", 4);
         bunke[4] = new Chancekort("Ryk 1 felt frem, eller tag et chancekort mere.", 5);
-        bunke[5] = new Chancekort("Du har spist for meget slik. BETAL M2 banken", 6);
+        bunke[5] = new Chancekort("Du har spist for meget slik. BETAL M2 til banken", 6);
         bunke[6] = new Chancekort("GRATIS FELT! Ryk frem til et orange eller grønt felt. Hvis det er ledigt, får du et GRATIS! Ellers skal BETALE leje til ejeren.", 7);
         bunke[7] = new Chancekort("GRATIS FELT! Ryk frem til et lyseblåt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.", 8);
         bunke[8] = new Chancekort("Du løslades uden omkostninger. Behold dette kort, indtil du får brug for det.", 9);

@@ -129,6 +129,7 @@ public class Consol {
                     boardController.setChanceFelt(false);
                     break;
                 case 6:
+                    spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-2);
                     boardController.setChanceFelt(false);
                     break;
                 case 7:
@@ -163,12 +164,19 @@ public class Consol {
                     boardController.setChanceFelt(false);
                     break;
                 case 11:
+                    int i = 0;
+                    while(i<spillerController.getSpillere().length){
+                        spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-1);
+                        i++;
+                    }
+                    spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+spillerController.getSpillere().length);
                     boardController.setChanceFelt(false);
                     break;
                 case 12:
                     boardController.setChanceFelt(false);
                     break;
                 case 13:
+                    spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+2);
                     boardController.setChanceFelt(false);
                     break;
                 case 14:
