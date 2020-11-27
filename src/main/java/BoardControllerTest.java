@@ -6,10 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardControllerTest {
 
     @Test
-    void getGui_fields() {
-    }
-
-    @Test
     void playerLandOnField() {
             BoardController boardController = new BoardController();
             SpillerController spillerController = new SpillerController();
@@ -25,15 +21,4 @@ class BoardControllerTest {
 
         }
 
-    @Test
-    void playerLandOnFieldFree() {
-    }
-
-    @Test
-    void isChanceFelt() {
-    }
-
-    @Test
-    void setChanceFelt() {
-    }
 }
