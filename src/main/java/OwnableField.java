@@ -3,7 +3,7 @@ public class OwnableField extends Field{
     int ejer;
     int husleje;
 
-    public OwnableField(int pris, int husleje) {
+    public OwnableField(int pris, int husleje) { //opretter OwnableField med argumenter
         super();
         this.pris = pris;
         this.husleje = husleje;

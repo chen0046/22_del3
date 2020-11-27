@@ -1,6 +1,6 @@
 import gui_fields.GUI_Player;
 
-public class SpillerController {
+public class SpillerController { //Opretter spillerne
 
     static Spiller[] spillere;
     GUI_Player[] gui_players;

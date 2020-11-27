@@ -1,7 +1,6 @@
 import gui_fields.*;
 import java.awt.*;
 
-
 public class BoardController {
     Board board;
     GUI_Field[] gui_fields;
@@ -16,7 +15,7 @@ public class BoardController {
         board.setFields(board.fields);
         bunke.bland();
         int i = 0;
-        while (i < 24) {
+        while (i < 24) { //tjekker hvilken type felt det er, og viser tilhørende tekst
             if (board.getFields()[i].isStart()) {
                 gui_fields[i] = new GUI_Start("Start", "Modtag: M2", "Tillykke du har nu passeret,-\nog vil nu modtage M2", new Color(204, 204, 204), new Color(204, 0, 204));
             } else if (board.getFields()[i].isJail()) {
@@ -34,7 +33,6 @@ public class BoardController {
                 gui_fields[i].setSubText(board.getFields()[i].getSubText());
                 gui_fields[i].setForeGroundColor(board.getFields()[i].getMain());
                 gui_fields[i].setBackGroundColor(board.getFields()[i].getSecondary());
-
             }
             i++;
         }
@@ -44,7 +42,7 @@ public class BoardController {
         return gui_fields;
     }
 
-    public void playerLandOnField(Spiller currentSpiller, int fieldID) {
+    public void playerLandOnField(Spiller currentSpiller, int fieldID) { //Tjekker hvilken type felt det er og sørger for funktionalitet i feltet
         if (board.getFields()[fieldID].isStart()) {setChanceFelt(false);
 
         } else if (board.getFields()[fieldID].isJail()) { this.flavorTekst = "Du er på besøg i fængslet. De har gratis parkering";
@@ -110,7 +108,7 @@ public class BoardController {
                 }
 
             }
-            public void playerLandOnFieldFree(Spiller currentSpiller, int fieldID){
+            public void playerLandOnFieldFree(Spiller currentSpiller, int fieldID){ //Metode til hvis man har et chancekort der giver et felt gratis
                 OwnableField ownable = (OwnableField) board.getFields()[fieldID];
                 if (ownable.getEjer() == -1) {
                     //Hvad der sker hvis ingen ejer feltet
@@ -119,7 +117,7 @@ public class BoardController {
                     this.flavorTekst = board.getFields()[fieldID].getTitle() + " er gratis og er blivet givet til: " + currentSpiller.getNavn();
                     if (board.getFields()[fieldID - 1].isOwnable()) {
                         OwnableField ownableBefore = (OwnableField) board.getFields()[fieldID - 1];
-                        if (ownable.getEjer() == ownableBefore.getEjer()) {
+                        if (ownable.getEjer() == ownableBefore.getEjer()) { //Hvad der sker hvis du ejer begge felter af den farve 1
                             ownable.setHusleje(ownable.getHusleje() * 2);
                             ownableBefore.setHusleje(ownableBefore.getHusleje() * 2);
                             board.getFields()[fieldID].setSubText("Leje: M" + ownable.getHusleje());
@@ -129,7 +127,7 @@ public class BoardController {
                             this.flavorTekst = board.getFields()[fieldID].getTitle() + "er blevet købt af: " + currentSpiller.getNavn() + " Du ejer nu begge felter af samme farve og lejen er nu fordoblet";
                         }
                     } else if (fieldID != 23) {
-                        if (board.getFields()[fieldID + 1].isOwnable()) {
+                        if (board.getFields()[fieldID + 1].isOwnable()) { //hvad der sker hvis du ejer begge felter af den farve 2
                             OwnableField ownableAfter = (OwnableField) board.getFields()[fieldID + 1];
                             if (ownable.getEjer() == ownableAfter.getEjer()) {
                                 ownable.setHusleje(ownable.getHusleje() * 2);

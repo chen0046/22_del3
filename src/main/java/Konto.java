@@ -1,4 +1,4 @@
-public class Konto {
+public class Konto { //opretter konto og get/set metode til den
     private int balance;
 
     public Konto () {
