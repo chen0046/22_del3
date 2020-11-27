@@ -6,12 +6,4 @@ public class Chancekort {
         this.kortTekst = kortTekst;
         this.kortID = kortID;
     }
-
-    public String getKortTekst() {
-        return kortTekst;
-    }
-
-    public int getKortID() {
-        return kortID;
-    }
 }

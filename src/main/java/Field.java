@@ -4,7 +4,6 @@ public class Field {
     String title;
     String subText;
     String description;
-    String rent;
     Color main;
     Color secondary;
 
@@ -89,24 +88,12 @@ public class Field {
         this.description = description;
     }
 
-    public String getRent() {
-        return rent;
-    }
-
-    public void setRent(String rent) {
-        this.rent = rent;
-    }
-
     public boolean isStart() {
         return start;
     }
 
     public void setStart(boolean start) {
         this.start = start;
-    }
-
-    public void Brætfunktion(){
-
     }
 }
 
