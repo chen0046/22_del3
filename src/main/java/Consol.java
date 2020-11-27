@@ -269,7 +269,7 @@ public class Consol {
             spillerController.getSpillere()[playerindex].spillerKonto.setBalance(-1);
             i++;
         }
-        spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+spillerController.getSpillere().length);
+        spillerController.getSpillere()[playerindex].spillerKonto.setBalance(+ spillerController.getSpillere().length);
         boardController.setChanceFelt(false);
         break;
     case 12:
