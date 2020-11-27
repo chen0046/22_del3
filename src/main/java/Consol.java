@@ -78,7 +78,7 @@ public class Consol {
     }
     public void turn (int playerindex) {
         boardController.setChanceFelt(false);
-        gui.getUserButtonPressed("hej", "Slå terningen");
+        gui.getUserButtonPressed("Det er " + spillerController.getSpillere()[playerindex].getNavn() + "'s tur", "Slå terningen");
         terning.roll();
         gui.setDie(terning.henttotal());
         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
