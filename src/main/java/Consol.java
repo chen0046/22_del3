@@ -103,7 +103,7 @@ public class Consol {
     }
     public void endGame() {
         spillerController.sortPLayers();
-        gui.displayChanceCard("Taberen er fundet! Det blev: " + spillerController.getSpillere()[0].getNavn() + "Vinderen er: " + spillerController.getSpillere()[spillerController.getSpillere().length - 1].getNavn());
+        gui.displayChanceCard("Taberen er fundet! Det blev: " + spillerController.getSpillere()[0].getNavn() + "\nVinderen er: " + spillerController.getSpillere()[spillerController.getSpillere().length - 1].getNavn());
     }
     public void boardControllerSwitch(int ID,int playerindex){
     switch (ID) {
@@ -117,7 +117,7 @@ public class Consol {
     case 2:
         int valg = gui.getUserInteger("Hvor mange felter vil du rykke frem?", 1, 5);
         while (valg < 1 || valg > 5) {
-            valg = gui.getUserInteger("Der blev sagt en til fem.");
+            valg = gui.getUserInteger("Der blev sagt 1-5.");
         }
         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
         spillerController.movePlayer(playerindex, valg);

@@ -72,7 +72,7 @@ public class BoardController {
         setChanceFelt(false);
         } else if (board.getFields()[fieldID].isGoToJail()) {
             setChanceFelt(false);
-            this.flavorTekst = "Du er desværre røget i fængsel";
+            this.flavorTekst = "Du er landet på 'Gå i fængsel' feltet:\nDu er desværre røget i fængsel";
             currentSpiller.setPos(6);
             currentSpiller.setInJail(true);
         } else {
@@ -119,7 +119,7 @@ public class BoardController {
                         //HVad der sker hvis spilleren ikke ejer feltet
                         currentSpiller.spillerKonto.setBalance(- ownable.getHusleje());
                         SpillerController.spillere[ownable.getEjer()].spillerKonto.setBalance(+ ownable.getHusleje());
-                        this.flavorTekst = "Du er landet på en anden spillers felt.";
+                        this.flavorTekst = "Du er landet på en anden spillers felt, så du må betale leje";
                     }
                 }
 
