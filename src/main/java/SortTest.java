@@ -1,4 +1,4 @@
-/*
+
         SpillerController spillerController = new SpillerController();
         spillerController.makeTestPlayers(4);
         spillerController.getSpillere()[0] = new Spiller();
