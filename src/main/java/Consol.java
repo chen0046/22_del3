@@ -190,7 +190,7 @@ public class Consol {
             boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
             updateView(SpillerController.spillere.length);
             gui.displayChanceCard(boardController.flavorTekst);
-            boardControllerSwitch(ID,playerindex);
+            boardControllerSwitch(boardController.bunke.ID,playerindex);
         }
         break;
     case 6:
