@@ -116,6 +116,9 @@ public class Consol {
         break;
     case 2:
         int valg = gui.getUserInteger("Hvor mange felter vil du rykke frem?", 1, 5);
+        while (valg < 1 || valg > 5) {
+            valg = gui.getUserInteger("Der blev sagt en til fem.");
+        }
         gui.getFields()[SpillerController.spillere[playerindex].getPos()].setCar(spillerController.getGui_players()[playerindex], false);
         spillerController.movePlayer(playerindex, valg);
         boardController.playerLandOnField(spillerController.getSpillere()[playerindex], spillerController.getSpillere()[playerindex].getPos());
