@@ -103,6 +103,9 @@ public class Consol {
     }
     public void endGame() {
         spillerController.sortPLayers();
+        if (spillerController.getSpillere()[spillerController.getSpillere().length - 1].spillerKonto.getBalance() == spillerController.getSpillere()[spillerController.getSpillere().length - 2].spillerKonto.getBalance()) {
+            gui.displayChanceCard("Taberen er fundet! Det blev: " + spillerController.getSpillere()[0].getNavn() + "\nDet blev en delt sejr til: " + spillerController.getSpillere()[spillerController.getSpillere().length - 1].getNavn() + "og " + spillerController.getSpillere()[spillerController.getSpillere().length - 2].getNavn());
+        }
         gui.displayChanceCard("Taberen er fundet! Det blev: " + spillerController.getSpillere()[0].getNavn() + "\nVinderen er: " + spillerController.getSpillere()[spillerController.getSpillere().length - 1].getNavn());
     }
     public void boardControllerSwitch(int ID,int playerindex){

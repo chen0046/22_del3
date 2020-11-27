@@ -40,10 +40,5 @@ public class SpillerController {
                 }
             }
         }
-        int i3 = 0;
-        while(i3 < getSpillere().length) {
-            System.out.println(getSpillere()[i3].spillerKonto.getBalance());
-            i3++;
-        }
     }
     }
